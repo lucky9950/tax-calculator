@@ -1,0 +1,78 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tax Calculator</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assignment.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+</head>
+<body>
+    <div class="container mt-5">
+       
+        <form id="taxForm">
+            <div class="form-group">
+                <label for="income">Enter gross annual income:</label>
+                <input type="number" id="income" class="form-control">
+                <span class="error-icon" id="incomeErrorIcon">!</span>
+            </div>
+
+            <div class="form-group">
+                <label for="extraIncome">Enter extra income:</label>
+                <input type="number" id="extraIncome" class="form-control">
+                <span class="error-icon" id="extraIncomeErrorIcon">!</span>
+            </div>
+
+            <div class="form-group">
+                <label for="age" type="number">Enter age group</label>
+                <select id="age" class="form-control">
+                    <option value="<40">&lt; 40</option>
+                    <option value=">=40&<60">&ge; 40 &lt; 60</option>
+                    <option value=">=60">&ge; 60</option>
+                </select>
+                <span class="error-icon" id="ageErrorIcon">!</span>
+            </div>
+            
+           
+            <div class="form-group">
+                <label for="deductions"> Enter total application deductions:</label>
+                <input type="number" id="deductions" class="form-control">
+                <span class="error-icon" id="deductionsErrorIcon">!</span>
+            </div>
+            <button type="button" id="calculateBtn" class="btn btn-primary" style="width: 100%;">submit</button>
+        </form>
+    </div>
+
+    <div class=" modal" id="resultModal">
+        <div class="modal-dialog container">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Your overall income will be</h4>
+                </div>
+                <div class="modal-body"style="display:flex;justi-content:center;flex-direction:column;">
+                    <p id="taxResult"></p>
+                    <p class="h5">after tax deductions</p>
+                </div>
+                <button type="button" class="close close-btn" data-dismiss="modal" >Close</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+         $(document).ready(function() {
+
+        document.querySelector('.close').addEventListener('click',    function() {
+         $('#resultModal').hide('hide');
+        });
+  
+  });
+    </script>
+
+    <script src="assignment.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
